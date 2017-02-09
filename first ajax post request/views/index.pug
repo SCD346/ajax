@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title foo
+  body
+    h1 AMAAZING WEBSITE
+    script(src="js/jquery-3.1.1.js")
+    script.
+
+      function postRequestIsFinished(response, status){
+        console.log('postRequestIsFinished is called')
+        console.log(status)
+        console.log(response)
+      }
+
+      var data = {
+        genieMessage: "We are calling the amazing genie"
+      }
+      $.post('/genie', data, postRequestIsFinished)

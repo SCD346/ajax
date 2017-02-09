@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title foo
+  body
+    h1 AMAAZING WEBSITE
+    button 0
+    button 1
+    button 2
+    button 3
+    button 4
+    script(src="js/jquery-3.1.1.js")
+    script.
+      $( "button" ).click(function(event) {
+        console.log(event.target.innerHTML)
+        var data = {
+          genieMessage: "We are calling the amazing genie",
+          genieNumber: event.target.innerHTML
+        }
+        $.post('/genie', data, postRequestIsFinished)
+      });
+
+      function postRequestIsFinished(response, status){
+        if(response === 'hajar'){
+          alert('THE WORLD HAS STOPPED')
+        }
+        console.log(response)
+      }
